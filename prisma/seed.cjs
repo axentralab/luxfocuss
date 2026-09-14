@@ -16,6 +16,20 @@ const products = [
   ["prod-trend-velocity", "trend-velocity", "Trend Velocity", "MT5", "Trading System", 19900, "1.5.2"],
   ["prod-session-guard", "session-guard", "Session Guard", "MT4", "Tool", 3900, "1.2.6"],
   ["prod-vps-elite", "vps-elite", "VPS Elite", "MT5", "VPS", 2900, "Managed plan"],
+  ["prod-smc-pro", "smc-pro", "SMC PRO", "TradingView", "Indicator", 6900, "1.0.0"],
+  ["prod-confluence-pro", "confluence-pro", "Confluence PRO", "TradingView", "Trading System", 7900, "1.0.0"],
+  ["prod-orderflow-pro", "orderflow-pro", "OrderFlow PRO", "TradingView", "Indicator", 8900, "1.0.0"],
+  ["prod-trading-engine-ea", "trading-engine-ea", "Trading Engine EA", "MT5", "EA", 15900, "1.0.0"],
+  ["prod-liquidity-scanner", "liquidity-scanner", "Liquidity Scanner", "TradingView", "Tool", 5900, "1.0.0"],
+  ["prod-prop-guard", "prop-guard", "Prop Guard", "TradingView", "Tool", 4900, "1.0.0"],
+  ["prod-gold-pro", "gold-pro", "Gold PRO", "TradingView", "Indicator", 6900, "1.0.0"],
+  ["prod-session-pro", "session-pro", "Session PRO", "TradingView", "Tool", 4900, "1.0.0"],
+  ["prod-fvg-pro", "fvg-pro", "FVG PRO", "TradingView", "Indicator", 5900, "1.0.0"],
+  ["prod-reversal-pro", "reversal-pro", "Reversal PRO", "TradingView", "Trading System", 6900, "1.0.0"],
+  ["prod-risk-manager", "risk-manager", "Risk Manager", "TradingView", "Tool", 3900, "1.0.0"],
+  ["prod-backtest-pro", "backtest-pro", "Backtest PRO", "TradingView", "Tool", 9900, "1.0.0"],
+  ["prod-ai-chart-analyzer", "ai-chart-analyzer", "AI Chart Analyzer", "TradingView", "Tool", 11900, "1.0.0"],
+  ["prod-luxfocus-terminal", "luxfocus-terminal", "LuxFocus Terminal", "TradingView", "Trading System", 14900, "1.0.0"],
 ];
 
 async function main() {

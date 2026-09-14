@@ -255,6 +255,33 @@ export const products: Product[] = [
     lastUpdated: "13 Sep 2026",
     developer: "Luxfocuss Infrastructure",
   },
+  ...rankedProducts
+    .filter((rankedProduct) => rankedProduct.name !== "Liquidity PRO")
+    .map((rankedProduct, index): Product => ({
+      id: `prod-${rankedProduct.name.toLowerCase().replaceAll(" ", "-")}`,
+      slug: rankedProduct.name.toLowerCase().replaceAll(" ", "-"),
+      name: rankedProduct.name,
+      category: index % 3 === 0 ? "Indicator" : index % 3 === 1 ? "Tool" : "Trading System",
+      platform: rankedProduct.name === "Trading Engine EA" ? "MT5" : "TradingView",
+      markets: ["Forex", "Gold", "Crypto"],
+      timeframe: index % 2 === 0 ? "M15" : "H1",
+      strategy: "Market Structure",
+      rating: rankedProduct.potential === 5 ? 4.9 : 4.7,
+      price: 59 + index * 10,
+      badge: rankedProduct.rank <= 3 ? "Top ranked" : undefined,
+      image: index % 2 === 0 ? "/images/indicator-chart.svg" : "/images/chart-graph.svg",
+      description: `${rankedProduct.name} delivers focused tools for cleaner market analysis and disciplined execution.`,
+      shortDescription: `Professional ${rankedProduct.name} workflow for structure-aware trading.`,
+      license: "Multiple Account License",
+      version: "1.0.0",
+      delivery: "Instant digital delivery",
+      updates: "90 days included",
+      support: "Email support",
+      riskLevel: "Medium",
+      releaseDate: "14 Sep 2026",
+      lastUpdated: "14 Sep 2026",
+      developer: "Luxfocuss Research",
+    })),
 ];
 
 export const pricingPlans = [

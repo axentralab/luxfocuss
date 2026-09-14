@@ -33,6 +33,30 @@ export type Product = {
   developer: string;
 };
 
+export type RankedProduct = {
+  rank: number;
+  name: string;
+  potential: number;
+};
+
+export const rankedProducts: RankedProduct[] = [
+  { rank: 1, name: "Liquidity PRO", potential: 5 },
+  { rank: 2, name: "SMC PRO", potential: 5 },
+  { rank: 3, name: "Confluence PRO", potential: 5 },
+  { rank: 4, name: "OrderFlow PRO", potential: 5 },
+  { rank: 5, name: "Trading Engine EA", potential: 5 },
+  { rank: 6, name: "Liquidity Scanner", potential: 5 },
+  { rank: 7, name: "Prop Guard", potential: 4 },
+  { rank: 8, name: "Gold PRO", potential: 4 },
+  { rank: 9, name: "Session PRO", potential: 4 },
+  { rank: 10, name: "FVG PRO", potential: 4 },
+  { rank: 11, name: "Reversal PRO", potential: 4 },
+  { rank: 12, name: "Risk Manager", potential: 4 },
+  { rank: 13, name: "Backtest PRO", potential: 5 },
+  { rank: 14, name: "AI Chart Analyzer", potential: 4 },
+  { rank: 15, name: "LuxFocus Terminal", potential: 5 },
+];
+
 export const categories: Category[] = [
   {
     name: "EA Bots",

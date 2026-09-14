@@ -1,4 +1,28 @@
+"use client";
+
+import { useState } from "react";
+
 export default function CheckoutPage() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function startCheckout() {
+    setLoading(true);
+    setError("");
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ productSlug: "gold-hunter-ea", quantity: 1 }),
+    });
+    const result = await response.json();
+    if (response.ok && result.url) {
+      window.location.assign(result.url);
+      return;
+    }
+    setError(result.error ?? "Unable to start checkout.");
+    setLoading(false);
+  }
+
   return (
     <main className="mx-auto max-w-6xl px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
       <div className="mb-8 text-center sm:mb-10">
@@ -28,7 +52,10 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <button className="mt-8 w-full rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950">Complete Purchase</button>
+          {error && <p className="mt-4 text-sm text-rose-300">{error}</p>}
+          <button onClick={startCheckout} disabled={loading} className="mt-8 w-full rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 disabled:cursor-wait disabled:opacity-60">
+            {loading ? "Opening secure checkout..." : "Complete Purchase"}
+          </button>
         </form>
 
         <div className="rounded-[2rem] border border-white/10 bg-[#0b1118] p-4 sm:p-8">

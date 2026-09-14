@@ -35,3 +35,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # luxfocuss
+
+## Deploy on Vercel
+
+1. Import this repository into Vercel.
+2. Add `DATABASE_URL` and `SESSION_COOKIE_NAME` in the project environment variables.
+3. Use a hosted PostgreSQL database for production. The local SQLite database is only for development because Vercel serverless storage is not persistent.
+4. Deploy with the default Next.js build settings. Prisma Client is generated automatically during install.

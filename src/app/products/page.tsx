@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products, rankedProducts } from "@/lib/mock-data";
+import { eaProductSpecs, products, rankedProducts } from "@/lib/mock-data";
 import { ProductCard } from "@/components/product-card";
 
 export default function ProductsPage() {
@@ -11,7 +11,7 @@ export default function ProductsPage() {
           <h1 className="mt-3 text-4xl font-black tracking-[-0.05em] text-white">Premium trading products</h1>
         </div>
         <div className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-200">
-          15 ranked products
+          {eaProductSpecs.length} EA products
         </div>
       </div>
 
@@ -19,7 +19,7 @@ export default function ProductsPage() {
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="text-xs uppercase tracking-[0.25em] text-emerald-300">Product ranking</div>
-            <h2 className="mt-2 text-2xl font-bold text-white">Ranked Product Potential</h2>
+            <h2 className="mt-2 text-2xl font-bold text-white">LuxFocus EA Product Suite</h2>
           </div>
           <span className="text-xs text-slate-500">Based on current catalogue potential</span>
         </div>
@@ -34,6 +34,18 @@ export default function ProductsPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        {["ENTRY / SCALPING", "SMC / ICT", "BREAKOUT", "TREND", "ADVANCED", "FLAGSHIP"].map((architecture) => (
+          <div key={architecture} className="rounded-2xl border border-emerald-400/20 bg-emerald-500/5 px-4 py-4">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-300">Architecture</div>
+            <div className="mt-2 text-sm font-semibold text-white">{architecture}</div>
+            <div className="mt-1 text-xs text-slate-400">
+              {eaProductSpecs.filter(([, , , productArchitecture]) => productArchitecture === architecture).length} products
+            </div>
+          </div>
+        ))}
       </section>
 
       <div className="mb-10 grid gap-4 rounded-3xl border border-white/10 bg-[#0b1118] p-5 md:grid-cols-2 xl:grid-cols-6">

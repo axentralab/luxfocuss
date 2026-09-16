@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { categories, faqItems, pricingPlans, products } from "@/lib/mock-data";
+import { categories, eaProductSpecs, faqItems, pricingPlans, products } from "@/lib/mock-data";
 import { ProductCard } from "@/components/product-card";
 
 function MetricPill({ label, value }: { label: string; value: string }) {
@@ -51,7 +51,7 @@ export default function Home() {
               </div>
 
               <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
-                <MetricPill label="Catalog products" value="6" />
+                <MetricPill label="EA suite products" value={`${eaProductSpecs.length}`} />
                 <MetricPill label="Supported platforms" value="3" />
                 <MetricPill label="Support response" value="1 day" />
               </div>

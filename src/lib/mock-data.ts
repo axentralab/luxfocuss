@@ -31,6 +31,7 @@ export type Product = {
   releaseDate: string;
   lastUpdated: string;
   developer: string;
+  architecture?: string;
 };
 
 export type RankedProduct = {
@@ -39,23 +40,34 @@ export type RankedProduct = {
   potential: number;
 };
 
-export const rankedProducts: RankedProduct[] = [
-  { rank: 1, name: "Liquidity PRO", potential: 5 },
-  { rank: 2, name: "SMC PRO", potential: 5 },
-  { rank: 3, name: "Confluence PRO", potential: 5 },
-  { rank: 4, name: "OrderFlow PRO", potential: 5 },
-  { rank: 5, name: "Trading Engine EA", potential: 5 },
-  { rank: 6, name: "Liquidity Scanner", potential: 5 },
-  { rank: 7, name: "Prop Guard", potential: 4 },
-  { rank: 8, name: "Gold PRO", potential: 4 },
-  { rank: 9, name: "Session PRO", potential: 4 },
-  { rank: 10, name: "FVG PRO", potential: 4 },
-  { rank: 11, name: "Reversal PRO", potential: 4 },
-  { rank: 12, name: "Risk Manager", potential: 4 },
-  { rank: 13, name: "Backtest PRO", potential: 5 },
-  { rank: 14, name: "AI Chart Analyzer", potential: 4 },
-  { rank: 15, name: "LuxFocus Terminal", potential: 5 },
-];
+export const eaProductSpecs = [
+  ["LUX ORBIT EA", "ORB + Breakout", "Gold / Indices", "BREAKOUT"],
+  ["LUX LIQUIDITY EA", "Liquidity Sweep + SMC", "XAUUSD", "SMC / ICT"],
+  ["LUX HUNTER EA", "Liquidity + BOS/CHoCH", "XAUUSD", "SMC / ICT"],
+  ["LUX VORTEX EA", "Momentum + Volatility", "Gold / Forex", "BREAKOUT"],
+  ["LUX TITAN EA", "Multi-Factor Trading", "Gold / Indices", "FLAGSHIP"],
+  ["LUX APEX EA", "SMC + ICT + FVG", "XAUUSD", "SMC / ICT"],
+  ["LUX PULSE EA", "Tick + Momentum", "Scalping", "ENTRY / SCALPING"],
+  ["LUX VECTOR EA", "Trend + EMA + Supertrend", "Forex / Gold", "TREND"],
+  ["LUX REAPER EA", "Breakout + Retest", "Gold / Indices", "BREAKOUT"],
+  ["LUX SENTINEL EA", "Session + Liquidity", "XAUUSD", "TREND"],
+  ["LUX PHANTOM EA", "Sweep + Reversal", "Gold", "SMC / ICT"],
+  ["LUX STRIKE EA", "High-Momentum Breakout", "Gold / NAS100", "ENTRY / SCALPING"],
+  ["LUX QUANT EA", "Quant / Multi-Factor", "Multi-Asset", "ADVANCED"],
+  ["LUX DOMINATOR EA", "Order Flow + DOM", "Futures / Gold", "ADVANCED"],
+  ["LUX FUSION EA", "SMC + Volume + Momentum", "Multi-Asset", "ADVANCED"],
+  ["LUX SNIPER EA", "Precision Entry + RR", "XAUUSD", "ENTRY / SCALPING"],
+  ["LUX GUARDIAN EA", "Risk Management + Trend", "Multi-Asset", "ADVANCED"],
+  ["LUX NEXUS EA", "Multi-Strategy Engine", "Multi-Asset", "ADVANCED"],
+  ["LUX ALPHA EA", "Institutional-style Framework", "Gold", "FLAGSHIP"],
+  ["LUX PRIME EA", "Premium All-in-One", "Multi-Asset", "FLAGSHIP"],
+] as const;
+
+export const rankedProducts: RankedProduct[] = eaProductSpecs.map(([name], index) => ({
+  rank: index + 1,
+  name,
+  potential: index < 6 || index >= 18 ? 5 : 4,
+}));
 
 export const categories: Category[] = [
   {
@@ -102,7 +114,7 @@ export const categories: Category[] = [
   },
 ];
 
-export const products: Product[] = [
+const legacyProducts: Product[] = [
   {
     id: "prod-gold-hunter-ea",
     slug: "gold-hunter-ea",
@@ -283,6 +295,36 @@ export const products: Product[] = [
       developer: "Luxfocuss Research",
     })),
 ];
+
+const eaProducts: Product[] = eaProductSpecs.map(([name, strategy, marketLabel, architecture], index) => ({
+  id: `prod-${name.toLowerCase().replaceAll(" ", "-")}`,
+  slug: name.toLowerCase().replaceAll(" ", "-"),
+  name,
+  category: "EA",
+  platform: "MT5",
+  markets: marketLabel.split(" / "),
+  timeframe: index % 3 === 0 ? "M5" : index % 3 === 1 ? "M15" : "H1",
+  strategy,
+  rating: index < 6 || index >= 18 ? 4.9 : 4.8,
+  price: architecture === "FLAGSHIP" ? 299 : architecture === "ADVANCED" ? 249 : 149,
+  salePrice: architecture === "FLAGSHIP" ? 249 : undefined,
+  badge: architecture === "FLAGSHIP" ? "Flagship" : index < 3 ? "New line" : architecture,
+  image: index % 2 === 0 ? "/images/hero-chart.svg" : "/images/chart-graph.svg",
+  description: `${name} is a focused MetaTrader execution system built around ${strategy.toLowerCase()} for ${marketLabel}.`,
+  shortDescription: `${strategy} automation for ${marketLabel}.`,
+  license: "1 Device / 1 Account",
+  version: "1.0.0",
+  delivery: "Instant download",
+  updates: "90 days included",
+  support: "Priority email support",
+  riskLevel: "High",
+  releaseDate: "16 Sep 2026",
+  lastUpdated: "16 Sep 2026",
+  developer: "LuxFocus Research",
+  architecture,
+}));
+
+export const products: Product[] = [...eaProducts, ...legacyProducts];
 
 export const pricingPlans = [
   {

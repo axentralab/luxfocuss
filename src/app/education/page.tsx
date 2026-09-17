@@ -19,6 +19,22 @@ export default function EducationPage() {
           <Link href="/strategy" className="mt-6 inline-flex text-sm font-semibold text-emerald-300 transition group-hover:text-emerald-200">Open strategy guide →</Link>
         </article>
 
+        <article className="group rounded-[2rem] border border-cyan-400/20 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.16),transparent_30%),#0b1118] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40">
+          <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-cyan-300"><span>Chart Playbook</span><span>6 min</span></div>
+          <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950 text-lg font-bold text-white">02</div>
+          <h2 className="mt-6 text-2xl font-bold text-white">ORB Strategy 02 — Breakout + Trend Filter</h2>
+          <p className="mt-3 leading-7 text-slate-400">A clean continuation breakout where the opening range is broken with momentum and the trend filter confirms the direction.</p>
+          <Link href="/strategy/orb-breakout-trend-filter" className="mt-6 inline-flex text-sm font-semibold text-cyan-300 transition group-hover:text-cyan-200">Open chart logic →</Link>
+        </article>
+
+        <article className="group rounded-[2rem] border border-violet-400/20 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.16),transparent_30%),#0b1118] p-6 transition hover:-translate-y-1 hover:border-violet-400/40">
+          <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-violet-300"><span>Course</span><span>12 min</span></div>
+          <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950 text-lg font-bold text-white">03</div>
+          <h2 className="mt-6 text-2xl font-bold text-white">ORB Master Course — Level 1 to Level 6</h2>
+          <p className="mt-3 leading-7 text-slate-400">Full institutional progression from classic breakout to adaptive multi-factor ORB framework for XAUUSD and market sessions.</p>
+          <Link href="/course" className="mt-6 inline-flex text-sm font-semibold text-violet-300 transition group-hover:text-violet-200">Open course page →</Link>
+        </article>
+
         {educationArticles.map((article, index) => (
           <article key={article.title} className="group rounded-[2rem] border border-white/10 bg-[#0b1118] p-6 transition hover:-translate-y-1 hover:border-emerald-400/40">
             <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-emerald-300"><span>{article.category}</span><span>{article.readTime}</span></div>

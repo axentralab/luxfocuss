@@ -42,6 +42,7 @@ export function SiteHeader() {
               <Link href="/performance" className="block rounded-xl px-4 py-3 hover:bg-white/5"><div className="font-medium text-white">Performance</div><div className="mt-1 text-xs text-slate-500">Evidence and sample records</div></Link>
               <Link href="/education" className="block rounded-xl px-4 py-3 hover:bg-white/5"><div className="font-medium text-white">Education</div><div className="mt-1 text-xs text-slate-500">Trading workflow guides</div></Link>
               <Link href="/documentation" className="block rounded-xl px-4 py-3 hover:bg-white/5"><div className="font-medium text-white">Documentation</div><div className="mt-1 text-xs text-slate-500">Installation and setup</div></Link>
+              <Link href="/strategy" className="block rounded-xl px-4 py-3 hover:bg-white/5"><div className="font-medium text-white">Strategy</div><div className="mt-1 text-xs text-slate-500">ORB learning and examples</div></Link>
               <Link href="/faq" className="block rounded-xl px-4 py-3 hover:bg-white/5"><div className="font-medium text-white">FAQ</div><div className="mt-1 text-xs text-slate-500">Common product questions</div></Link>
             </div>
           </details>
@@ -77,6 +78,7 @@ export function SiteHeader() {
         <Link href="/bundles" className="shrink-0 rounded-lg px-3 py-2 hover:bg-white/5">Bundles</Link>
         <Link href="/performance" className="shrink-0 rounded-lg px-3 py-2 hover:bg-white/5">Performance</Link>
         <Link href="/education" className="shrink-0 rounded-lg px-3 py-2 hover:bg-white/5">Education</Link>
+        <Link href="/strategy" className="shrink-0 rounded-lg px-3 py-2 hover:bg-white/5">Strategy</Link>
         <Link href="/documentation" className="shrink-0 rounded-lg px-3 py-2 hover:bg-white/5">Docs</Link>
       </nav>
     </header>

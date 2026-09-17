@@ -11,10 +11,18 @@ export default function EducationPage() {
       </div>
 
       <div className="grid gap-5 md:grid-cols-2">
+        <article className="group rounded-[2rem] border border-emerald-400/20 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.16),transparent_30%),#0b1118] p-6 transition hover:-translate-y-1 hover:border-emerald-400/40">
+          <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-emerald-300"><span>Strategy</span><span>8 min</span></div>
+          <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950 text-lg font-bold text-white">01</div>
+          <h2 className="mt-6 text-2xl font-bold text-white">ORB Strategy 01 — Classic Breakout</h2>
+          <p className="mt-3 leading-7 text-slate-400">Session opening range, breakout confirmation, and disciplined risk rules for XAUUSD-style trading.</p>
+          <Link href="/strategy" className="mt-6 inline-flex text-sm font-semibold text-emerald-300 transition group-hover:text-emerald-200">Open strategy guide →</Link>
+        </article>
+
         {educationArticles.map((article, index) => (
           <article key={article.title} className="group rounded-[2rem] border border-white/10 bg-[#0b1118] p-6 transition hover:-translate-y-1 hover:border-emerald-400/40">
             <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-emerald-300"><span>{article.category}</span><span>{article.readTime}</span></div>
-            <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950 text-lg font-bold text-white">0{index + 1}</div>
+            <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-slate-950 text-lg font-bold text-white">0{index + 2}</div>
             <h2 className="mt-6 text-2xl font-bold text-white">{article.title}</h2>
             <p className="mt-3 leading-7 text-slate-400">A concise guide from the Luxfocuss documentation desk for traders evaluating a repeatable, risk-aware process.</p>
             <Link href="/documentation" className="mt-6 inline-flex text-sm font-semibold text-emerald-300 transition group-hover:text-emerald-200">Open documentation →</Link>

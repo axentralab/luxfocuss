@@ -74,6 +74,11 @@ export default function CoursePage() {
                         ? "border-violet-400/30 bg-violet-500/10 text-violet-300"
                         : "border-slate-500/30 bg-slate-500/10 text-slate-200"
             }`}>{index === 0 ? "Foundation" : index === 1 ? "Refinement" : index === 2 ? "Institutional" : index === 3 ? "Confluence" : index === 4 ? "Adaptive" : "Quant"}</div>
+            {index >= 2 ? (
+              <Link href="/course/level-3-to-6" className="mt-5 inline-flex text-sm font-semibold text-amber-200 transition hover:text-amber-100">
+                Open advanced module →
+              </Link>
+            ) : null}
           </div>
         ))}
       </section>
